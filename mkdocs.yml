@@ -121,10 +121,12 @@ nav:
     - Home: index.md
     - Basics:
       - CLI:
-        - Argument Parser: 01-cli/01-argument-parser.md
+        - Argument Parser: 01-basics/01-cli/01-argument-parser.md
       - Data Structures:
-        - Map, Filter, Reduce: 02-data-structures/01-map-filter-reduce-lambda.md
-        - Queue: 02-data-structures/02-queue.md
+        - Map, Filter, Reduce: 01-basics/02-data-structures/01-map-filter-reduce-lambda.md
+        - Queue: 01-basics/02-data-structures/02-queue.md
+      - Core python Libraries:
+        - ContextLib: 01-basics/03-core-python-libraries/01-contextlib.md
     - Concurrency:
       - Threading:
         - Introduction: 03-concurrency/01-threading/01-intro.md
