@@ -127,6 +127,8 @@ nav:
         - Queue: 01-basics/02-data-structures/02-queue.md
       - Core python Libraries:
         - ContextLib: 01-basics/03-core-python-libraries/01-contextlib.md
+        - AtExit: 01-basics/03-core-python-libraries/02-atexit.md
+        - Signal: 01-basics/03-core-python-libraries/03-signal.md
       - Features:
         - Iterators: 01-basics/04-features/01-iterators.md
         - Generators: 01-basics/04-features/02-generators.md
