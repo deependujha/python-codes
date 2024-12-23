@@ -1,0 +1,33 @@
+# Async Event (`Synchronization Primitives`)
+
+- An asyncio event can be used to notify multiple asyncio tasks that some event has happened.
+
+!!! example ""
+    An Event object manages an internal flag that can be set to true with the set() method and reset to false with the clear() method.
+
+    The wait() method blocks until the flag is set to true. The flag is set to false initially.
+
+```python
+import asyncio
+
+async def waiter(event):
+    print('waiting for it ...')
+    await event.wait()
+    print('... got it!')
+
+async def main():
+    # Create an Event object.
+    event = asyncio.Event()
+
+    # Spawn a Task to wait until 'event' is set.
+    waiter_task = asyncio.create_task(waiter(event))
+
+    # Sleep for 1 second and set the event.
+    await asyncio.sleep(1)
+    event.set()
+
+    # Wait until the waiter task is finished.
+    await waiter_task
+
+asyncio.run(main())
+```
