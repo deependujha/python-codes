@@ -1,12 +1,12 @@
 # Project information
-site_name: Python codes 🧑🏻‍💻
-site_url: https://deependujha.github.io/python-help
+site_name: Cooking journey 🧑‍🍳🍳
+site_url: https://deependujha.github.io/cooking-journey
 site_author: Deependu Jha
 site_description: >-
-  This website contains helpful codes for python.
+  This website contains notes that I've taken while learning cooking.
 # Repository
-repo_name: deependujha/python-help
-repo_url: https://github.com/deependujha/python-help
+repo_name: deependujha/cooking-journey
+repo_url: https://github.com/deependujha/cooking-journey
 
 # Copyright
 copyright: Copyright &copy; 2024 Deependu Jha
@@ -52,8 +52,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: images/assets/favicon.png
-  logo: images/assets/favicon.png
+  favicon: images/assets/logo.png
+  logo: images/assets/logo.png
 
 # Additional configuration
 extra:
@@ -117,38 +117,7 @@ extra_javascript:
 
 # Page tree
 nav:
-  - Python Codes:
+  - Cooking Journey:
     - Home: index.md
     - Basics:
-      - CLI:
-        - Argument Parser: 01-basics/01-cli/01-argument-parser.md
-      - Data Structures:
-        - Map, Filter, Reduce: 01-basics/02-data-structures/01-map-filter-reduce-lambda.md
-        - Queue: 01-basics/02-data-structures/02-queue.md
-      - Core python Libraries:
-        - ContextLib: 01-basics/03-core-python-libraries/01-contextlib.md
-        - AtExit: 01-basics/03-core-python-libraries/02-atexit.md
-        - Signal: 01-basics/03-core-python-libraries/03-signal.md
-      - Features:
-        - Iterators: 01-basics/04-features/01-iterators.md
-        - Generators: 01-basics/04-features/02-generators.md
-        - Indexing: 01-basics/04-features/03-indexing.md
-    - Concurrency:
-      - Threading:
-        - Introduction: 03-concurrency/01-threading/01-intro.md
-        - Custom Thread: 03-concurrency/01-threading/02-custom-thread.md
-        - Event: 03-concurrency/01-threading/03-event.md
-      - Multiprocessing:
-        - Introduction: 03-concurrency/02-processing/01-intro.md
-        - Communication: 03-concurrency/02-processing/02-communication.md
-        - Locking: 03-concurrency/02-processing/03-locking.md
-        - Manager: 03-concurrency/02-processing/04-manager.md
-        - Process pool: 03-concurrency/02-processing/05-process-pool.md
-        - Custom Process: 03-concurrency/02-processing/06-custom-process.md
-      - Concurrent Executor: 03-concurrency/03-concurrent-executor.md
-    - Network & IPC:
-      - Async:
-        - Intro: 04-network-and-ipc/01-async/01-intro.md
-        - High Level API: 04-network-and-ipc/01-async/02-high-level-api.md
-        - Low Level API: 04-network-and-ipc/01-async/03-low-level-api.md
-        - Async Event: 04-network-and-ipc/01-async/04-async-event.md
+      - Spices: 01-basics/01-spices.md
