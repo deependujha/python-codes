@@ -1,4 +1,4 @@
-# Concurrency with Queus
+# Concurrency with Queues
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
