@@ -133,6 +133,7 @@ nav:
         - Iterators: 01-basics/04-features/01-iterators.md
         - Generators: 01-basics/04-features/02-generators.md
         - Indexing: 01-basics/04-features/03-indexing.md
+      - TQDM: 01-basics/05-tqdm.md
     - Concurrency:
       - Threading:
         - Introduction: 03-concurrency/01-threading/01-intro.md
@@ -146,6 +147,7 @@ nav:
         - Process pool: 03-concurrency/02-processing/05-process-pool.md
         - Custom Process: 03-concurrency/02-processing/06-custom-process.md
       - Concurrent Executor: 03-concurrency/03-concurrent-executor.md
+      - Concurrency & Queues: 03-concurrency/04-concurrency-with-queues.md
     - Network & IPC:
       - Async:
         - Intro: 04-network-and-ipc/01-async/01-intro.md
