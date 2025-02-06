@@ -9,7 +9,7 @@ def func(x):
 
 
 def test_answer():
-    assert func(3) == 5 # pytest should fail
+    assert func(3) == 5, "some msgto be printed in the traceback if fails"
 ```
 
 ---
@@ -29,6 +29,41 @@ def test_mytest():
     with pytest.raises(SystemExit):
         f()
 ```
+
+---
+
+## Matching `Exception` messages
+
+```python
+import pytest
+
+
+def myfunc():
+    raise ValueError("Exception 123 raised")
+
+
+def test_match():
+    with pytest.raises(ValueError, match=r".* 123 .*"):
+        myfunc()
+```
+
+---
+
+## Using `context` provided by `raises`
+
+```python
+def test_foo_not_implemented():
+    def foo():
+        raise NotImplementedError
+
+    with pytest.raises(RuntimeError) as excinfo:
+        foo()
+    assert excinfo.type is RuntimeError
+```
+
+---
+
+## Handling `ExceptionGroup` in pytest
 
 - You can also use the context provided by raises to assert that an expected exception is part of a raised `ExceptionGroup`:
 
@@ -75,3 +110,23 @@ class TestClassDemoInstance:
 
 !!! bug "Grouping tests in class"
     Inside classes, `each test has a unique instance of the class`.
+
+---
+
+## `xfail mark` and `pytest.raises`
+
+```python
+def f():
+    raise IndexError()
+
+
+@pytest.mark.xfail(raises=IndexError)
+def test_f():
+    f()
+```
+
+- This will only “xfail” if the test fails by raising IndexError or subclasses.
+
+!!! warning "`xfail` v/s `raises` So when to use which one?"
+    - If there's an existing bug that is yet to be fixed, use `xfail`. It will help you in documenting unfixed bugs when you decide to fix.
+    - `pytest.raises` is likely to be better for cases where you are testing exceptions your own code is deliberately raising, which is the majority of cases.

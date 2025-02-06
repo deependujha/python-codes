@@ -21,6 +21,18 @@ pytest test_dir1/test_dir2/test_file.py
 
 # running a specific test
 pytest test_dir1/test_file.py::my_test_name
+
+# Specifying a specific test method
+pytest tests/test_mod.py::TestClass::test_method
+
+# Specifying a specific parametrization of a test
+pytest tests/test_mod.py::test_func[x1,y2]
+
+# marker expressions: run all tests decorated with `@pytest.mark.slow`
+pytest -m slow
+
+# marker expression: `@pytest.mark.slow(phase=1)`
+pytest -m "slow(phase=1)"
 ```
 
 !!! info "pytest options"  
