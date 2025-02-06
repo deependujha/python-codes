@@ -10,6 +10,28 @@ pytest --version
 
 ---
 
+## Running pytest
+
+```bash
+# run testfile
+pytest test_file_name.py
+
+# run testfile in some nested dir
+pytest test_dir1/test_dir2/test_file.py
+
+# running a specific test
+pytest test_dir1/test_file.py::my_test_name
+```
+
+!!! info "pytest options"  
+    - `-q`: Run in quiet mode (minimal output).  
+    - `-v`: Run in verbose mode (detailed output).  
+    - `-s` (stdout): Disable output capturing (prints `print()` statements).  
+    - `--tb=short`: Show a shortened traceback for test failures.  
+    - `-k "expression" (keyword)`: Run tests matching the given substring or expression.
+
+---
+
 ## Test discovery rule
 
 !!! secondary "standard test discovery"
@@ -24,6 +46,14 @@ pytest --version
 ---
 
 ## Pytest Configuration
+
+To get help on command line options and values in INI-style configurations files by using the general help option:
+
+```bash
+pytest -h   # prints options _and_ config file settings
+```
+
+> This will display command line and configuration file settings which were registered by installed plugins.
 
 - We can specify pytest configurations in either `pytest.ini`, or `.pytest.ini` (hidden file), or `pyproject.toml` file.
 - `pytest.ini` files take precedence over other files, even when empty.
