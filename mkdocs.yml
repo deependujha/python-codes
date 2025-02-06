@@ -162,3 +162,4 @@ nav:
         - Markers: 05-libraries/01-pytest/04-markers.md
         - Parameterize: 05-libraries/01-pytest/05-parameterize.md
         - tmppath fixture: 05-libraries/01-pytest/06-tmppath.md
+        - Monkeypatch mock: 05-libraries/01-pytest/07-monkeypatch-mock.md
