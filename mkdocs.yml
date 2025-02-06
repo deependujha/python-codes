@@ -160,4 +160,4 @@ nav:
         - Basic Usage: 05-libraries/01-pytest/02-basic-usage.md
         - Fixtures: 05-libraries/01-pytest/03-fixtures.md
         - Markers: 05-libraries/01-pytest/04-markers.md
-        
+        - Parameterize: 05-libraries/01-pytest/05-parameterize.md
