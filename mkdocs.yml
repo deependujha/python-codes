@@ -154,3 +154,7 @@ nav:
         - High Level API: 04-network-and-ipc/01-async/02-high-level-api.md
         - Low Level API: 04-network-and-ipc/01-async/03-low-level-api.md
         - Async Event: 04-network-and-ipc/01-async/04-async-event.md
+    - Libraries:
+      - Pytest:
+        - Install & Config: 05-libraries/01-pytest/01-install-and-config.md
+        - Basic Usage: 05-libraries/01-pytest/02-basic-usage.md
