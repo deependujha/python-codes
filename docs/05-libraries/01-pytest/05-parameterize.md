@@ -70,6 +70,8 @@ def test_division(example_input, expectation):
         assert (6 / example_input) == e
 ```
 
+- To use **ValueError** with **`match`**: `pytest.raises(ValueError, match="The provided")`
+
 ---
 
 ## test `IDs` in parameterize
