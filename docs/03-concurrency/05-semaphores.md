@@ -76,7 +76,7 @@ All workers finished execution!
 
 ---
 
-!!! info 
+!!! info
     Just like **threading.Semaphore**, we have **semaphores** for both **multiprocessing** and **async (asyncio)**.
 
 ---
@@ -150,7 +150,7 @@ async def main():
 asyncio.run(main())
 ```
 
-### **Expected Behavior**
+### **Expected**
 
 - **Two tasks run at the same time**.
 - The **third task waits** until one of them releases the semaphore.
