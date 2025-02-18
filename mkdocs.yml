@@ -148,6 +148,8 @@ nav:
         - Custom Process: 03-concurrency/02-processing/06-custom-process.md
       - Concurrent Executor: 03-concurrency/03-concurrent-executor.md
       - Concurrency & Queues: 03-concurrency/04-concurrency-with-queues.md
+      - Semaphores: 03-concurrency/05-semaphores.md
+      - Byte-Range downloader: 03-concurrency/06-byte-range-downloader.md
     - Network & IPC:
       - Async:
         - Intro: 04-network-and-ipc/01-async/01-intro.md
