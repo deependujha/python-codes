@@ -123,10 +123,11 @@ nav:
       - CLI:
         - Argument Parser: 01-basics/01-cli/01-argument-parser.md
       - Data Structures:
+        - Loops & Functions: 01-basics/02-data-structures/00-loops-and-functions.md
         - Lists & Tuples: 01-basics/02-data-structures/01-lists-and-tuples.md
         - Sets & Dicts: 01-basics/02-data-structures/02-sets-and-dicts.md
-        - Map, Filter, Reduce: 01-basics/02-data-structures/01-map-filter-reduce-lambda.md
-        - Queue: 01-basics/02-data-structures/02-queue.md
+        - Map, Filter, Reduce: 01-basics/02-data-structures/03-map-filter-reduce-lambda.md
+        - Queues: 01-basics/02-data-structures/04-queues.md
       - Core python Libraries:
         - ContextLib: 01-basics/03-core-python-libraries/01-contextlib.md
         - AtExit: 01-basics/03-core-python-libraries/02-atexit.md
