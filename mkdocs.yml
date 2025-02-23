@@ -123,6 +123,8 @@ nav:
       - CLI:
         - Argument Parser: 01-basics/01-cli/01-argument-parser.md
       - Data Structures:
+        - Lists & Tuples: 01-basics/02-data-structures/01-lists-and-tuples.md
+        - Sets & Dicts: 01-basics/02-data-structures/02-sets-and-dicts.md
         - Map, Filter, Reduce: 01-basics/02-data-structures/01-map-filter-reduce-lambda.md
         - Queue: 01-basics/02-data-structures/02-queue.md
       - Core python Libraries:
