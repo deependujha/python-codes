@@ -121,6 +121,7 @@ nav:
     - Home: index.md
     - Basics:
       - Argument Parser: 01-basics/01-argument-parser.md
+      - CLI: 01-basics/02-cli.md
       - Data Structures:
         - Loops & Functions: 01-basics/02-data-structures/00-loops-and-functions.md
         - Lists & Tuples: 01-basics/02-data-structures/01-lists-and-tuples.md
