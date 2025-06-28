@@ -111,7 +111,76 @@ Number: 5
 ### **Common Methods**
 
 1. `parser.add_argument()`: Define arguments.
-2. `parser.parse_args()`: Parse command-line inputs.
+2. `parser.add_subparsers()`: Create subcommands.
+3. `parser.set_defaults()`: Set default functions for arguments.
+4. `parser.parse_args()`: Parse command-line inputs.
+
+---
+
+### CLI with subcommands
+
+```python
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser, RawTextHelpFormatter
+
+
+class DeepFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter): ...
+
+
+def parse_args():
+    parser = ArgumentParser(
+        description="A simple script to demonstrate argument parsing.",
+        formatter_class=DeepFormatter,
+    )
+    # Top-level subparser
+    # dest value is used to check which command was called
+    # if `dest=meow`, then `args.meow` will be set to the subcommand called (cache, or optimize)
+    subparsers = parser.add_subparsers(dest="command", title="Commands")
+
+    cache_parser = subparsers.add_parser(
+        "cache", help="Cache the dataset", formatter_class=DeepFormatter
+    )
+    cache_parser.add_argument(
+        "--cache-dir", type=str, help="Directory to cache the dataset"
+    )
+    cache_parser.add_argument(
+        "--cache-size", type=int, default=100, help="Size of the cache in MB"
+    )
+    cache_parser.set_defaults(func=handle_cache)
+    optimize_parser = subparsers.add_parser(
+        "optimize", help="Optimize the dataset", formatter_class=DeepFormatter
+    )
+    optimize_parser.add_argument(
+        "--optimize-level", type=int, default=1, help="Level of optimization (1-3)"
+    )
+    optimize_parser.set_defaults(func=handle_optimize)
+    optimize_parser.add_argument(
+        "--optimize-strategy",
+        type=str,
+        choices=["fast", "balanced", "thorough"],
+        default="balanced",
+        help="Strategy for optimization",
+    )
+    return parser.parse_args(), parser
+
+def handle_cache(args):
+    print(f"running command: {args.command}")
+    print(f"Caching dataset in {args.cache_dir} with size {args.cache_size}MB")
+
+def handle_optimize(args):
+    print(f"Optimizing dataset with level {args.optimize_level} and strategy {args.optimize_strategy}")
+
+
+def main():
+    args, parser = parse_args()
+    if hasattr(args, "func"):
+        args.func(args)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
+```
 
 ---
 
