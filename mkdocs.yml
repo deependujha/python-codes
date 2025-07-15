@@ -1,12 +1,12 @@
 # Project information
 site_name: Python codes 🧑🏻‍💻
-site_url: https://deependujha.github.io/python-help
+site_url: https://deependujha.github.io/python-codes
 site_author: Deependu Jha
 site_description: >-
   This website contains helpful codes for python.
 # Repository
-repo_name: deependujha/python-help
-repo_url: https://github.com/deependujha/python-help
+repo_name: deependujha/python-codes
+repo_url: https://github.com/deependujha/python-codes
 
 # Copyright
 copyright: Copyright &copy; 2024 Deependu Jha
