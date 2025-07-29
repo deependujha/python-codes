@@ -184,6 +184,23 @@ if __name__ == "__main__":
 
 ---
 
+### **NameSpace**
+
+```python
+from argparse import Namespace
+
+args = Namespace(foo=123, bar="hello")
+print(args)  # Namespace(foo=123, bar='hello')
+
+print(vars(args))  # {'foo': 123, 'bar': 'hello'}
+
+```
+
+* The built-in `vars()` function returns the `__dict__` of an object — essentially its attributes as a dictionary.
+* For a `Namespace` object, `vars()` turns it into a **dictionary** of argument names → values.
+
+---
+
 ### **Tips**
 
 - Use `help` for clear CLI documentation.
