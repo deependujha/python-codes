@@ -682,3 +682,227 @@ age: Optional[int] = None # optional
 
 * Boundary layer → ✅ use Pydantic
 * Core logic → ❌ avoid
+
+---
+
+Good place to end — this is where you get **real control over behavior**.
+
+Here are the **model_config options you’ll actually use in practice**, not the obscure ones.
+
+---
+
+# 🔥 Most Useful `model_config` Options
+
+## 1. `strict=True` (highly recommended)
+
+```python
+model_config = ConfigDict(strict=True)
+```
+
+👉 disables coercion
+
+```python
+User(id="1")  # ❌ instead of silently becoming int
+```
+
+💡 Use this in almost all serious projects
+
+---
+
+## 2. `extra`
+
+```python
+model_config = ConfigDict(extra="forbid")
+```
+
+Options:
+
+* `"ignore"` → drop unknown fields
+* `"allow"` → keep them
+* `"forbid"` → ❌ raise error
+
+👉 Example:
+
+```python
+User(id=1, unknown="x")  # ❌ if forbid
+```
+
+💡 `"forbid"` is the cleanest default
+
+---
+
+## 3. `frozen=True`
+
+```python
+model_config = ConfigDict(frozen=True)
+```
+
+👉 makes model immutable (assignment blocked)
+
+⚠️ does NOT prevent inner mutation
+
+---
+
+## 4. `str_strip_whitespace=True`
+
+```python
+model_config = ConfigDict(str_strip_whitespace=True)
+```
+
+👉 auto cleans input:
+
+```python
+User(name="  alice  ")  # → "alice"
+```
+
+---
+
+## 5. `validate_assignment=True`
+
+```python
+model_config = ConfigDict(validate_assignment=True)
+```
+
+👉 re-validates on mutation
+
+```python
+user.age = "abc"  # ❌ ValidationError
+```
+
+💡 Useful if model is mutable
+
+---
+
+## 6. `populate_by_name=True`
+
+```python
+model_config = ConfigDict(populate_by_name=True)
+```
+
+Used with aliases:
+
+```python
+from pydantic import Field
+
+class User(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    user_id: int = Field(alias="id")
+
+User(user_id=1)
+User(id=1)
+```
+
+👉 both work
+
+---
+
+## 7. `use_enum_values=True`
+
+```python
+model_config = ConfigDict(use_enum_values=True)
+```
+
+👉 stores enum as raw value
+
+```python
+role = Role.admin  # → "admin"
+```
+
+---
+
+## 8. `from_attributes=True`
+
+```python
+model_config = ConfigDict(from_attributes=True)
+```
+
+👉 allows parsing from objects (not just dicts)
+
+```python
+class Obj:
+    id = 1
+
+User.model_validate(Obj())
+```
+
+💡 very useful for ORM / scraping
+
+---
+
+## 9. `arbitrary_types_allowed=True`
+
+```python
+model_config = ConfigDict(arbitrary_types_allowed=True)
+```
+
+👉 lets you use custom classes
+
+```python
+class MyClass: ...
+
+class Model(BaseModel):
+    obj: MyClass
+```
+
+---
+
+## 🧠 My “default stack” (practical)
+
+If I were setting a base model:
+
+```python
+from pydantic import BaseModel, ConfigDict
+
+class Base(BaseModel):
+    model_config = ConfigDict(
+        strict=True,
+        extra="forbid",
+        str_strip_whitespace=True,
+    )
+```
+
+👉 This alone removes a LOT of bugs
+
+---
+
+## ⚠️ Common mistakes
+
+### ❌ forgetting `extra="forbid"`
+
+→ silent bugs from unexpected fields
+
+---
+
+### ❌ using `strict=False` (default) blindly
+
+→ weird coercions sneak in
+
+---
+
+### ❌ mixing frozen + mutation expectations
+
+→ leads to confusing behavior
+
+---
+
+## 🧩 Mental model
+
+`model_config` controls:
+
+* **input behavior** → strict, extra
+* **mutation behavior** → frozen, validate_assignment
+* **parsing behavior** → from_attributes
+* **data normalization** → strip whitespace
+
+---
+
+## 🚀 TL;DR
+
+If you only remember 5:
+
+* `strict=True`
+* `extra="forbid"`
+* `frozen=True` (optional)
+* `validate_assignment=True` (if mutable)
+* `str_strip_whitespace=True`
