@@ -122,6 +122,9 @@ nav:
     - Basics:
       - Argument Parser: 01-basics/01-argument-parser.md
       - CLI: 01-basics/02-cli.md
+      - Typing:
+        - Pydantic: 01-basics/typing/pydantic-notes.md
+        - MyPy: 01-basics/typing/mypy-notes.md
       - Data Structures:
         - Loops & Functions: 01-basics/02-data-structures/00-loops-and-functions.md
         - Lists & Tuples: 01-basics/02-data-structures/01-lists-and-tuples.md
