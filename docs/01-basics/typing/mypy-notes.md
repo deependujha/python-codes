@@ -1,11 +1,3 @@
-# MyPy Quick Notes
-Good—this is where most people either level up or get stuck.
-
-Here’s a **practical “Pydantic + mypy” note** focused on real pain points 👇
-
----
-
-````markdown id="pyd-mypy-notes"
 # Pydantic + mypy (Practical Patterns)
 
 ## Why this combo is tricky
@@ -261,7 +253,7 @@ user.id + "abc"  # runtime fine? maybe, but mypy catches it
 
 ---
 
-## 13. mypy config (important)
+## 13. 🐢 mypy config (important)
 
 - `pyproject.toml`
 
@@ -319,15 +311,4 @@ mypy = compile-time safety
 
 👉 You want BOTH, but clearly separated
 
-```
-
----
-
-If you internalize just **3 things** from this:
-
-1. Kill `Optional` early (property pattern 🔥)
-2. Use `model_validate` for external data  
-3. Separate boundary vs core models  
-
-—you’ll be ahead of most devs using Pydantic.
 ```
