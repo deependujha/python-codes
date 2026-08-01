@@ -201,6 +201,111 @@ print(vars(args))  # {'foo': 123, 'bar': 'hello'}
 
 ---
 
+### **Formatting Help Output**
+
+```python
+from argparse import ArgumentParser, RawTextHelpFormatter, ArgumentDefaultsHelpFormatter
+
+class MyFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter): ...
+
+parser = ArgumentParser(
+    description="""
+This is a demo CLI.
+
+Examples:
+    python demo.py --port 9000
+    python demo.py --host localhost
+""",
+    # formatter_class=RawTextHelpFormatter
+    # formatter_class=ArgumentDefaultsHelpFormatter
+    formatter_class=MyFormatter
+)
+
+parser.add_argument(
+    "--port",
+    type=int,
+    default=8000,
+    help="Port to listen on",
+)
+
+parser.add_argument(
+    "--host",
+    default="127.0.0.1",
+    help="Host address",
+)
+
+parser.parse_args()
+parser.print_help()
+```
+
+#### output:
+
+- without using any formatter class:
+
+```
+❯ python main.py                                                                                                                                        ─╯
+usage: main.py [-h] [--port PORT] [--host HOST]
+
+This is a demo CLI. Examples: python demo.py --port 9000 python demo.py --host localhost
+
+options:
+  -h, --help   show this help message and exit
+  --port PORT  Port to listen on
+  --host HOST  Host address
+```
+
+- using `RawTextHelpFormatter`:
+
+```
+❯ python main.py                                                                                                                                        ─╯
+usage: main.py [-h] [--port PORT] [--host HOST]
+
+This is a demo CLI.
+
+Examples:
+    python demo.py --port 9000
+    python demo.py --host localhost
+
+options:
+  -h, --help   show this help message and exit
+  --port PORT  Port to listen on
+  --host HOST  Host address
+```
+
+- using `ArgumentDefaultsHelpFormatter`:
+
+```
+❯ python main.py                                                                                                                                        ─╯
+usage: main.py [-h] [--port PORT] [--host HOST]
+
+This is a demo CLI. Examples: python demo.py --port 9000 python demo.py --host localhost
+
+options:
+  -h, --help   show this help message and exit
+  --port PORT  Port to listen on (default: 8000)
+  --host HOST  Host address (default: 127.0.0.1)
+```
+
+- using `MyFormatter` (combination of both):
+
+```
+❯ python main.py                                                                                                                                               ─╯
+usage: main.py [-h] [--port PORT] [--host HOST]
+
+This is a demo CLI.
+
+Examples:
+    python demo.py --port 9000
+    python demo.py --host localhost
+
+options:
+  -h, --help   show this help message and exit
+  --port PORT  Port to listen on (default: 8000)
+  --host HOST  Host address (default: 127.0.0.1)
+```
+
+
+
 ### **Tips**
 
 - Use `help` for clear CLI documentation.
